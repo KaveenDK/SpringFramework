@@ -24,8 +24,8 @@ public interface JobRepository extends JpaRepository<Job, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE Job SET status = 'Deactivated' WHERE id = ?1", nativeQuery = true)
-    void updateJobStatus(String jobId);
+    @Query(value = "UPDATE Job SET status = ?2 WHERE id = ?1", nativeQuery = true)
+    void updateJobStatus(int jobId, String status);
 
     List<Job> findJobByJobTitleContainingIgnoreCase(String keyword);
 }

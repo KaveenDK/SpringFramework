@@ -10,6 +10,7 @@ import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * --------------------------------------------
@@ -60,7 +61,13 @@ public class JobServiceImpl implements JobService {
 
     @Override
     public void changeJobStatus(String id) {
-        jobRepository.updateJobStatus(id);
+        int jobId = Integer.parseInt(id);
+        Optional<Job> jobOpt = jobRepository.findById(jobId);
+        if (jobOpt.isPresent()) {
+            Job job = jobOpt.get();
+            String newStatus = "Active".equalsIgnoreCase(job.getStatus()) ? "Deactivated" : "Active";
+            jobRepository.updateJobStatus(jobId, newStatus);
+        }
     }
 
     @Override
