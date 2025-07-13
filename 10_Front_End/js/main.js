@@ -2,6 +2,16 @@ let allJobs = [];
 let currentPage = 1;
 const jobsPerPage = 10;
 
+// Helper: Show SweetAlert
+function showAlert(type, message) {
+    Swal.fire({
+        icon: type,
+        text: message,
+        timer: 1500,
+        showConfirmButton: false
+    });
+}
+
 // Load all jobs and display in table with pagination
 function loadJobs(keyword = "") {
     let url = keyword
@@ -76,11 +86,19 @@ $(document).on('click', '.page-link', function(e) {
 
 // Add a new job
 $('#saveJobBtn').click(function() {
+    const jobTitle = $('#jobTitle').val().trim();
+    const company = $('#companyName').val().trim();
+    const location = $('#jobLocation').val().trim();
+    const type = $('#jobType').val();
+    if (!jobTitle || !company || !location || !type) {
+        showAlert('error', 'Please fill all required fields!');
+        return;
+    }
     const jobData = {
-        jobTitle: $('#jobTitle').val(),
-        company: $('#companyName').val(),
-        location: $('#jobLocation').val(),
-        type: $('#jobType').val(),
+        jobTitle,
+        company,
+        location,
+        type,
         jobDescription: $('#jobDescription').val(),
         status: 'Active'
     };
@@ -90,7 +108,7 @@ $('#saveJobBtn').click(function() {
         contentType: 'application/json',
         data: JSON.stringify(jobData),
         success: function(response) {
-            alert(response);
+            showAlert('success', response);
             $('#addJobForm')[0].reset();
             loadJobs();
         }
@@ -116,12 +134,20 @@ $(document).on('click', '.edit-btn', function() {
 
 // Update job
 $('#updateJobBtn').click(function() {
+    const jobTitle = $('#editJobTitle').val().trim();
+    const company = $('#editCompanyName').val().trim();
+    const location = $('#editJobLocation').val().trim();
+    const type = $('#editJobType').val();
+    if (!jobTitle || !company || !location || !type) {
+        showAlert('error', 'Please fill all required fields!');
+        return;
+    }
     const jobData = {
         id: $('#editJobId').val(),
-        jobTitle: $('#editJobTitle').val(),
-        company: $('#editCompanyName').val(),
-        location: $('#editJobLocation').val(),
-        type: $('#editJobType').val(),
+        jobTitle,
+        company,
+        location,
+        type,
         jobDescription: $('#editJobDescription').val(),
         status: 'Active'
     };
@@ -131,7 +157,7 @@ $('#updateJobBtn').click(function() {
         contentType: 'application/json',
         data: JSON.stringify(jobData),
         success: function(response) {
-            alert(response);
+            showAlert('success', response);
             $('#editJobForm')[0].reset();
             loadJobs();
         }
@@ -141,16 +167,25 @@ $('#updateJobBtn').click(function() {
 // Delete job
 $(document).on('click', '.delete-btn', function() {
     const id = $(this).data('id');
-    if (confirm('Are you sure you want to delete this job?')) {
-        $.ajax({
-            url: `http://localhost:8080/api/v1/job/delete?id=${id}`,
-            method: 'PUT',
-            success: function(response) {
-                alert(response);
-                loadJobs();
-            }
-        });
-    }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this job!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `http://localhost:8080/api/v1/job/delete?id=${id}`,
+                method: 'PUT',
+                success: function(response) {
+                    showAlert('success', response);
+                    loadJobs();
+                }
+            });
+        }
+    });
 });
 
 // Toggle job status (Activate/Deactivate)
@@ -158,16 +193,24 @@ $(document).on('click', '.toggle-status-btn', function() {
     const id = $(this).data('id');
     const currentStatus = $(this).data('status');
     const action = currentStatus === 'Active' ? 'deactivate' : 'activate';
-    if (confirm(`Are you sure you want to ${action} this job?`)) {
-        $.ajax({
-            url: `http://localhost:8080/api/v1/job/changeStatus/${id}`,
-            method: 'PATCH',
-            success: function(response) {
-                alert(response);
-                loadJobs();
-            }
-        });
-    }
+    Swal.fire({
+        title: `Are you sure you want to ${action} this job?`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `http://localhost:8080/api/v1/job/changeStatus/${id}`,
+                method: 'PATCH',
+                success: function(response) {
+                    showAlert('success', response);
+                    loadJobs();
+                }
+            });
+        }
+    });
 });
 
 // Search jobs
