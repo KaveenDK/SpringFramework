@@ -1,5 +1,6 @@
 package lk.ijse.edu.backend.controller;
 
+import jakarta.validation.Valid;
 import lk.ijse.edu.backend.dto.JobDTO;
 import lk.ijse.edu.backend.service.JobService;
 import lk.ijse.edu.backend.util.APIResponse;
@@ -35,7 +36,7 @@ public class JobController {
 //    }
 
     @PostMapping("create")
-    public ResponseEntity<APIResponse<String>> createJob(@RequestBody JobDTO jobDTO) {
+    public ResponseEntity<APIResponse<String>> createJob(@RequestBody @Valid JobDTO jobDTO) {
         jobService.saveJob(jobDTO);
         return new ResponseEntity<>(new APIResponse<>(201, "Job created successfully!", "Success"
         ), HttpStatus.CREATED);
@@ -48,7 +49,7 @@ public class JobController {
 //    }
 
     @PutMapping("update")
-    public ResponseEntity<APIResponse<String>> updateJob(@RequestBody JobDTO jobDTO) {
+    public ResponseEntity<APIResponse<String>> updateJob(@RequestBody @Valid JobDTO jobDTO) {
         jobService.updateJob(jobDTO);
         return ResponseEntity.ok(new APIResponse<>(200, "Job updated successfully!", "Success"));
     }
