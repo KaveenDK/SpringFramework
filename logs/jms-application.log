@@ -1,0 +1,58 @@
+2025-07-14T14:57:13.587+05:30  INFO 11468 --- [BackEnd] [main] lk.ijse.edu.backend.BackEndApplication   : Starting BackEndApplication using Java 21.0.5 with PID 11468 (D:\Softwares\IntelliJ IDEA\AAD\Spring\Spring Framework\11_Back_End\target\classes started by Dimantha Kaveen in D:\Softwares\IntelliJ IDEA\AAD\Spring\Spring Framework)
+2025-07-14T14:57:13.589+05:30 DEBUG 11468 --- [BackEnd] [main] lk.ijse.edu.backend.BackEndApplication   : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-07-14T14:57:13.590+05:30  INFO 11468 --- [BackEnd] [main] lk.ijse.edu.backend.BackEndApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-07-14T14:57:14.447+05:30  INFO 11468 --- [BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-14T14:57:14.525+05:30  INFO 11468 --- [BackEnd] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2025-07-14T14:57:15.082+05:30  INFO 11468 --- [BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-07-14T14:57:15.099+05:30  INFO 11468 --- [BackEnd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-07-14T14:57:15.099+05:30  INFO 11468 --- [BackEnd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-14T14:57:15.170+05:30  INFO 11468 --- [BackEnd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-07-14T14:57:15.171+05:30  INFO 11468 --- [BackEnd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1522 ms
+2025-07-14T14:57:15.388+05:30  INFO 11468 --- [BackEnd] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-14T14:57:15.444+05:30  INFO 11468 --- [BackEnd] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-07-14T14:57:15.480+05:30  INFO 11468 --- [BackEnd] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-07-14T14:57:15.798+05:30  INFO 11468 --- [BackEnd] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-14T14:57:15.831+05:30  INFO 11468 --- [BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-07-14T14:57:16.215+05:30  INFO 11468 --- [BackEnd] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e158f33
+2025-07-14T14:57:16.217+05:30  INFO 11468 --- [BackEnd] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-07-14T14:57:16.276+05:30  WARN 11468 --- [BackEnd] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-07-14T14:57:16.301+05:30  INFO 11468 --- [BackEnd] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.36
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-14T14:57:17.290+05:30  INFO 11468 --- [BackEnd] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-14T14:57:17.352+05:30  INFO 11468 --- [BackEnd] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-14T14:57:17.644+05:30  INFO 11468 --- [BackEnd] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-14T14:57:17.797+05:30  WARN 11468 --- [BackEnd] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-07-14T14:57:17.953+05:30 DEBUG 11468 --- [BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2025-07-14T14:57:18.064+05:30 DEBUG 11468 --- [BackEnd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-07-14T14:57:18.096+05:30 DEBUG 11468 --- [BackEnd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-07-14T14:57:18.160+05:30 DEBUG 11468 --- [BackEnd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-07-14T14:57:18.375+05:30  INFO 11468 --- [BackEnd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-07-14T14:57:18.385+05:30  INFO 11468 --- [BackEnd] [main] lk.ijse.edu.backend.BackEndApplication   : Started BackEndApplication in 5.499 seconds (process running for 6.391)
+2025-07-14T14:57:22.222+05:30  INFO 11468 --- [BackEnd] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-14T14:57:22.224+05:30  INFO 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-07-14T14:57:22.224+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-07-14T14:57:22.224+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-07-14T14:57:22.224+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-07-14T14:57:22.225+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4932d580
+2025-07-14T14:57:22.226+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@8942ece
+2025-07-14T14:57:22.226+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-07-14T14:57:22.227+05:30  INFO 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-07-14T14:57:22.238+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/job/create", parameters={}
+2025-07-14T14:57:22.292+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lk.ijse.edu.backend.controller.JobController#createJob(JobDTO)
+2025-07-14T14:57:22.397+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lk.ijse.edu.backend.dto.JobDTO@5097739]
+2025-07-14T14:57:22.482+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler lk.ijse.edu.backend.exceptions.GlobalExceptionHandler#handleMethodArgumentNotValidException(MethodArgumentNotValidException)
+2025-07-14T14:57:22.513+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-07-14T14:57:22.519+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [APIResponse(status=400, message=Validation Failed, data={jobTitle=Job Title is required, company=Com (truncated)...]
+2025-07-14T14:57:22.544+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<lk.ijse.edu.backend.util.APIResponse<java.lang.String>> lk.ijse.edu.backend.controller.JobController.createJob(lk.ijse.edu.backend.dto.JobDTO) with 3 errors: [Field error in object 'jobDTO' on field 'type': rejected value [null]; codes [NotBlank.jobDTO.type,NotBlank.type,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [jobDTO.type,type]; arguments []; default message [type]]; default message [Job Type is required]] [Field error in object 'jobDTO' on field 'company': rejected value [null]; codes [NotBlank.jobDTO.company,NotBlank.company,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [jobDTO.company,company]; arguments []; default message [company]]; default message [Company Name is required]] [Field error in object 'jobDTO' on field 'jobTitle': rejected value []; codes [NotBlank.jobDTO.jobTitle,NotBlank.jobTitle,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [jobDTO.jobTitle,jobTitle]; arguments []; default message [jobTitle]]; default message [Job Title is required]] ]
+2025-07-14T14:57:22.545+05:30 DEBUG 11468 --- [BackEnd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2025-07-14T14:57:35.953+05:30  INFO 11468 --- [BackEnd] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-14T14:57:35.961+05:30  INFO 11468 --- [BackEnd] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-07-14T14:57:35.967+05:30  INFO 11468 --- [BackEnd] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-14T14:57:35.971+05:30  INFO 11468 --- [BackEnd] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-07-14T14:57:35.984+05:30  INFO 11468 --- [BackEnd] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

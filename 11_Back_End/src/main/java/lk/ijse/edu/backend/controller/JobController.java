@@ -5,6 +5,9 @@ import lk.ijse.edu.backend.dto.JobDTO;
 import lk.ijse.edu.backend.service.JobService;
 import lk.ijse.edu.backend.util.APIResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,9 +28,11 @@ import java.util.List;
 @RequestMapping("api/v1/job")
 @RequiredArgsConstructor
 @CrossOrigin
+@Slf4j
 public class JobController {
 
     private final JobService jobService;
+//    private static final Logger logger = LoggerFactory.getLogger(JobController.class);
 
 //    @PostMapping("create")
 //    public String createJob(@RequestBody JobDTO jobDTO) {
@@ -37,6 +42,18 @@ public class JobController {
 
     @PostMapping("create")
     public ResponseEntity<APIResponse<String>> createJob(@RequestBody @Valid JobDTO jobDTO) {
+//        logger.info("Job Creating Successfully");
+//        logger.debug("Job Details: {}", jobDTO);
+//        logger.error("Job Creation Failed");
+//        logger.trace("Job Creation Trace");
+//        logger.warn("Job Creation Warning");
+
+        log.info("Job Creating Successfully"); // business logic - information level
+        log.debug("Job Details: {}", jobDTO); // debug level for detailed information
+        log.error("Job Creation Failed"); // error level for errors
+        log.trace("Job Creation Trace"); // trace level for detailed tracing
+        log.warn("Job Creation Warning"); // warning level for potential issues
+
         jobService.saveJob(jobDTO);
         return new ResponseEntity<>(new APIResponse<>(201, "Job created successfully!", "Success"
         ), HttpStatus.CREATED);
