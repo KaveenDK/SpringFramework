@@ -12,7 +12,7 @@ function showAlert(type, message) {
     });
 }
 
-// Load all jobs and display in table with pagination
+// Load all jobs
 function loadJobs(keyword = "") {
     let url = keyword
         ? `http://localhost:8080/api/v1/job/search/${keyword}`
@@ -84,7 +84,7 @@ $(document).on('click', '.page-link', function(e) {
     }
 });
 
-// Add a new job
+// Add job
 $('#saveJobBtn').click(function() {
     const jobTitle = $('#jobTitle').val().trim();
     const company = $('#companyName').val().trim();
@@ -115,7 +115,7 @@ $('#saveJobBtn').click(function() {
     });
 });
 
-// Show edit modal with job data
+// edit job
 $(document).on('click', '.edit-btn', function() {
     const id = $(this).data('id');
     $.get(`http://localhost:8080/api/v1/job/getalljobs`, function(data) {
