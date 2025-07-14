@@ -2,7 +2,7 @@ let allJobs = [];
 let currentPage = 1;
 const jobsPerPage = 10;
 
-// Helper: Show SweetAlert
+// Show SweetAlert
 function showAlert(type, message) {
     Swal.fire({
         icon: type,
