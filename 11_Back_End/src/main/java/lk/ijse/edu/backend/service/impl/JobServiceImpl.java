@@ -2,6 +2,7 @@ package lk.ijse.edu.backend.service.impl;
 
 import lk.ijse.edu.backend.dto.JobDTO;
 import lk.ijse.edu.backend.entity.Job;
+import lk.ijse.edu.backend.exceptions.ResourceNotFound;
 import lk.ijse.edu.backend.repository.JobRepository;
 import lk.ijse.edu.backend.service.JobService;
 import lombok.RequiredArgsConstructor;
@@ -40,39 +41,63 @@ public class JobServiceImpl implements JobService {
 //
 //        jobRepository.save(job);
 
+        if (jobDTO == null) {
+            throw new IllegalArgumentException("Job cannot be null");
+        }
+        jobDTO.setId(0);
         jobRepository.save(modelMapper.map(jobDTO, Job.class));
     }
 
     @Override
     public void updateJob(JobDTO jobDTO) {
+        if (jobDTO==null||jobDTO.getId()==0){
+            throw new IllegalArgumentException("Job Id cannot be null");
+        }
         jobRepository.save(modelMapper.map(jobDTO, Job.class));
     }
 
     @Override
     public void deleteJob(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("Job Id must be greater than zero");
+        }
+
+        if (!jobRepository.existsById(id)) {
+            throw new ResourceNotFound("Job with ID " + id + " not found");
+        }
+
         jobRepository.deleteById(id);
     }
 
     @Override
     public List<JobDTO> getAllJobs() {
         List<Job> allJobs=jobRepository.findAll();
+        if (allJobs.isEmpty()){
+            throw new ResourceNotFound("No Job Found");
+        }
         return modelMapper.map(allJobs, new TypeToken<List<JobDTO>>(){}.getType());
     }
 
     @Override
     public void changeJobStatus(String id) {
         int jobId = Integer.parseInt(id);
-        Optional<Job> jobOpt = jobRepository.findById(jobId);
-        if (jobOpt.isPresent()) {
-            Job job = jobOpt.get();
-            String newStatus = "Active".equalsIgnoreCase(job.getStatus()) ? "Deactivated" : "Active";
-            jobRepository.updateJobStatus(jobId, newStatus);
-        }
+        Job job = jobRepository.findById(jobId)
+                .orElseThrow(() -> new ResourceNotFound("Job with ID " + id + " not found"));
+
+        String newStatus = "Active".equalsIgnoreCase(job.getStatus()) ? "Deactivated" : "Active";
+        jobRepository.updateJobStatus(jobId, newStatus);
     }
+
 
     @Override
     public List<JobDTO> getAllJobsByKeyword(String keyword) {
+        if (keyword==null){
+            throw new IllegalArgumentException("Keyword cannot be null");
+        }
         List<Job> allJobs = jobRepository.findJobByJobTitleContainingIgnoreCase(keyword);
+        if (allJobs.isEmpty()){
+            throw new ResourceNotFound("No Job Found");
+        }
         return modelMapper.map(allJobs, new TypeToken<List<JobDTO>>(){}.getType());
     }
 }
