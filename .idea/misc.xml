@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/11_Back_End/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring Security BackEnd/pom.xml" />
       </list>
     </option>
   </component>
