@@ -119,3 +119,10 @@ $(document).ready(function () {
     });
 
 });
+
+// === LOGOUT FUNCTIONALITY ===
+$(document).on("click", "#logoutBtn", function () {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    window.location.href = "../index.html";
+});
