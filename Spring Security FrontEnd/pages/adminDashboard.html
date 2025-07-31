@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>User Dashboard</title>
+    <title>Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/script.js"></script>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900">
     <section
@@ -21,7 +20,7 @@
           src="../assets/images/KaveeN.jpg"
           alt="logo"
         />
-        Dashboard
+        Admin Dashboard
       </a>
       <div
         class="w-full bg-white rounded-lg shadow dark:border sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
@@ -33,7 +32,7 @@
             Welcome, <span id="username"></span>!
           </h1>
           <p class="text-sm text-gray-500 dark:text-gray-400 text-center">
-            You are successfully signed in.
+            You are signed in as an admin.
           </p>
         </div>
       </div>
@@ -44,7 +43,7 @@
     <script src="../js/script.js"></script>
     <script>
       document.getElementById("username").textContent =
-        localStorage.getItem("username") || "User";
+        localStorage.getItem("username") || "Admin";
     </script>
   </body>
 </html>
