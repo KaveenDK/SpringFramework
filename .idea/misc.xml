@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/11_Back_End/pom.xml" />
         <option value="$PROJECT_DIR$/Spring Security BackEnd/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringTesting/pom.xml" />
       </list>
     </option>
   </component>
